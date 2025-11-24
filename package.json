@@ -11,5 +11,8 @@
   "devDependencies": {
     "prettier": "^3.6.2",
     "vite": "^7.2.4"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.8"
   }
 }
