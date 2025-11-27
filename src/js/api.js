@@ -51,3 +51,5 @@ const getFavoriteBooks = async () => {
     console.error("Error en la petición HTTP:", err.message);
   }
 };
+
+export { addBook, getBooks };
