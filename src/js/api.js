@@ -1,4 +1,4 @@
-const URLBiblioteca = "http://localhost:3000/libros";
+const URLBiblioteca = "https://slihpnhhoqwbmfmidgyu.supabase.co/functions/v1/biblioteca";
 
 const getBooks = async () => {
   try {
