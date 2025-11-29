@@ -37,7 +37,7 @@ const addBook = async (
     });
     const books = await response.json();
     return books;
-  } catch (error) {
+  } catch (err) {
     console.error("Error en la petición HTTP:", err.message);
   }
 };
@@ -52,4 +52,4 @@ const getFavoriteBooks = async () => {
   }
 };
 
-export { addBook, getBooks };
+export { addBook, getBooks, getFavoriteBooks };

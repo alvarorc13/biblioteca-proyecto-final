@@ -75,6 +75,5 @@ export function AddBook() {
       </div>
     </div>
   </div>
-  <script type="module" src="/src/js/validarFormulario.js"></script>
 `;
 }
