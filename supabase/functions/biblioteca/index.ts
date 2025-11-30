@@ -17,7 +17,7 @@ Deno.serve(async (req) => {
     return new Response("ok", {
       headers: {
         "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS, DELETE, PATCH",
         "Access-Control-Allow-Headers": "Content-Type",
       },
     });

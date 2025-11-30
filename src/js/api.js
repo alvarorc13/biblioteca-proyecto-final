@@ -53,7 +53,7 @@ const addBook = async (
   }
 };
 
-export async function deleteBook(id) {
+const deleteBook = async (id) => {
   try {
     const response = await fetch(`${URLBiblioteca}?id=${id}`, {
       method: "DELETE",
@@ -86,4 +86,4 @@ const toggleFavorite = async (id, nuevoEstado) => {
   }
 };
 
-export { getBooks, getFavoriteBooks, addBook, toggleFavorite };
+export { getBooks, getFavoriteBooks, addBook, deleteBook, toggleFavorite };
