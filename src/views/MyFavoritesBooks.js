@@ -13,7 +13,7 @@ export async function MyFavoritesBooks() {
   }
   return `
   <section class="container my-4">
-    <h2 class="mb-4 text-center">Mis Libros</h2>
+    <h2 class="mb-4 text-center">Mis favoritos</h2>
     <div class="row row-cols-1 row-cols-md-5 g-4">
       ${books
         .map(

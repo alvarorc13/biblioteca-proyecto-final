@@ -4,7 +4,7 @@ import { MyBooks } from "./views/MyBooks";
 import { AddBook } from "./views/AddBook";
 import { validarFormulario } from "./js/validarFormulario";
 import { MyFavoritesBooks } from "./views/MyFavoritesBooks";
-import { deleteBook } from "./js/api";
+import { deleteBook, toggleFavorite } from "./js/api";
 
 export async function router() {
   const view = document.getElementById("view");
@@ -24,7 +24,7 @@ export async function router() {
     validarFormulario();
   }
 
-  if (route === "/mybooks") {
+  if (route === "/mybooks" || route === "/myfavoritesbooks") {
     document.querySelectorAll(".delete-btn").forEach((btn) => {
       btn.addEventListener("click", async () => {
         const id = btn.dataset.id;
@@ -32,6 +32,15 @@ export async function router() {
           await deleteBook(id);
           await router();
         }
+      });
+    });
+
+    document.querySelectorAll(".favorite-btn").forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        const id = btn.dataset.id;
+        const nuevoEstado = btn.textContent.includes("Añadir") ? true : false;
+        await toggleFavorite(id, nuevoEstado);
+        await router();
       });
     });
   }

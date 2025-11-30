@@ -2,7 +2,7 @@ import { Book } from "../components/Book";
 import { getBooks } from "../js/api";
 
 export async function MyBooks() {
-  const books = await getBooks();
+  let books = (await getBooks()).sort((l1, l2) => l1.titulo.localeCompare(l2.titulo));
 
   if (!books.length) {
     return `
