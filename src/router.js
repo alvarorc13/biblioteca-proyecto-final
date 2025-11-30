@@ -1,18 +1,38 @@
 import { Home } from "./views/Home";
 import { NotFound } from "./views/NotFound";
 import { MyBooks } from "./views/MyBooks";
-import { Favorites } from "./views/Favorites";
 import { AddBook } from "./views/AddBook";
+import { validarFormulario } from "./js/validarFormulario";
+import { MyFavoritesBooks } from "./views/MyFavoritesBooks";
+import { deleteBook } from "./js/api";
 
-export function router() {
+export async function router() {
   const view = document.getElementById("view");
   const route = location.hash.slice(1).toLowerCase() || "/";
   const routes = {
     "/": Home,
     "/mybooks": MyBooks,
-    "/favorites": Favorites,
+    "/myfavoritesbooks": MyFavoritesBooks,
     "/addbook": AddBook,
   };
   const screen = routes[route] || NotFound;
-  view.innerHTML = screen();
+
+  const html = await screen();
+  view.innerHTML = html;
+
+  if (route === "/addbook") {
+    validarFormulario();
+  }
+
+  if (route === "/mybooks") {
+    document.querySelectorAll(".delete-btn").forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        const id = btn.dataset.id;
+        if (confirm("¿Seguro que quieres eliminar este libro?")) {
+          await deleteBook(id);
+          await router();
+        }
+      });
+    });
+  }
 }

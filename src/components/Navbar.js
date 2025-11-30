@@ -16,7 +16,7 @@ export function Navbar() {
             <a class="nav-link" href="#/myBooks">Mis libros</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#/favorites">Favoritos</a>
+            <a class="nav-link" href="#/myFavoritesBooks">Favoritos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#/addBook">Añadir un libro</a>
